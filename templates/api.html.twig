@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <header class="my-5">
+        <h1 class="text-uppercase fw-bold text-primary">API Schtroumpfizer</h1>
+    </header>
+
+    <h3 class="fw-bold mb-3">API</h3>
+
+    <div class="d-flex gap-2">
+        <div class="rounded px-3 bg-primary bg-opacity-10 text-body">GET</div>
+        <div>
+            <span class="opacity-50">https://schtroumpfizer.doelia.fr</span><span>/api/schtroumpfize</span>
+        </div>
+    </div>
+
+    <pre class="bg-light p-3 rounded mt-3">curl https://schtroumpfizer.doelia.fr/api/schtroumpfize?sentence=Il%20fait%20bon%20chez%20vous </pre>
+    <div class="text-center my-3">
+        <img src="/assets/arrow.svg" alt="Réponse" style="width: 50px; aspect-ratio: 66/48" />
+    </div>
+    <pre class="bg-light p-3 rounded mt-3">{ final_sentence: "Il schtroumpfe bon chez vous" }</pre>
+
+    <div class="d-flex justify-content-center mt-5">
+        <div class="rounded px-3 bg-success bg-opacity-50 text-white">DEBUG MODE</div>
+    </div>
+
+    <pre class="bg-light p-3 rounded mt-3">curl https://schtroumpfizer.doelia.fr/api/schtroumpfize?debug=1&sentence=Il%20fait%20bon%20chez%20vous </pre>
+    <div class="text-center my-3">
+        <img src="/assets/arrow.svg" alt="Réponse" style="width: 50px; aspect-ratio: 66/48" />
+    </div>
+    <pre class="bg-light p-3 rounded mt-3 fw-light"> {
+    "final_sentence": "Il schtroumpf\u00e9 bon chez vous.",
+    "debug": {
+        "tokens": [
+            ...
+            {
+                "dep": "ROOT",
+                "end": 7,
+                "head": 1,
+                "id": 1,
+                "lemma": "faire",
+                "morph": "Gender=Masc|Number=Sing|Tense=Past|VerbForm=Part",
+                "pos": "VERB",
+                "start": 3,
+                "tag": "VERB",
+                "token": "fait",
+                "schtroumpfed": "schtroumpf\u00e9",
+                "schtroumpfed_offset": 7,
+                "schtroumpfed_type": "VERB"
+            },
+            ...
+        ]
+    }
+}
+    </pre>
+
+
+{% endblock %}
+

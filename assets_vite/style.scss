@@ -1,0 +1,34 @@
+
+$primary: #37BAED;
+$min-contrast-ratio:   2 !default;
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.sentence {
+  background-color: rgba(55, 186, 237, 0.1);
+  border-radius: 5px;
+  padding: 1rem;
+  border: 0;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 16px;
+  min-height: 150px;
+  line-height: 1.5;
+}
+
+textarea {
+  font-family: 'Poppins', sans-serif;
+}
+
+.px-6 {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+}
+
+
+pre {
+  white-space: pre-wrap;
+}
