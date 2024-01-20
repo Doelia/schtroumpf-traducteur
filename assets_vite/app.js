@@ -19,6 +19,9 @@ async function translate(sentence) {
         pendingTimeout = setTimeout(async () => {
             const url = '/api/translate?sentence=' + encodeURIComponent(sentence);
             const response = await fetch(url);
+            if (!response.ok) {
+                reject('Error');
+            }
             const data = await response.json();
             resolve(data.final_sentence);
         }, 200);

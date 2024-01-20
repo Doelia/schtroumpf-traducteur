@@ -10,7 +10,7 @@ RUN npm run build
 
 ##############################################################################################$
 
-FROM dunglas/frankenphp as build_php
+FROM dunglas/frankenphp:latest-php8.3 as build_php
 
 RUN apt-get update && apt-get install -y git zip unzip
 
@@ -32,7 +32,7 @@ RUN php bin/console cache:clear --env=prod --no-debug
 
 ##############################################################################################$
 
-FROM dunglas/frankenphp
+FROM dunglas/frankenphp:latest-php8.3-alpine
 
 RUN install-php-extensions \
     intl \

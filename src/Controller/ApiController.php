@@ -37,9 +37,10 @@ class ApiController extends AbstractController
         }
 
         $nChars = strlen($sentence);
-        if ($nChars > 1000) {
+
+        if ($nChars > 1200) {
             return new JsonResponse([
-                'error' => "Sentence is too long ($nChars > 1000 chars)",
+                'error' => "Sentence is too long ($nChars > 1200 chars)",
             ], 400);
         }
 
