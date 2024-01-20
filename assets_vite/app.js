@@ -7,7 +7,7 @@ gsap.registerPlugin(TextPlugin)
 
 let pendingTimeout = null;
 
-async function schtroumpfize(sentence) {
+async function translate(sentence) {
 
     if (!sentence) return '';
 
@@ -17,7 +17,7 @@ async function schtroumpfize(sentence) {
 
     return new Promise((resolve, reject) => {
         pendingTimeout = setTimeout(async () => {
-            const url = '/api/schtroumpfize?sentence=' + encodeURIComponent(sentence);
+            const url = '/api/translate?sentence=' + encodeURIComponent(sentence);
             const response = await fetch(url);
             const data = await response.json();
             resolve(data.final_sentence);
@@ -26,19 +26,13 @@ async function schtroumpfize(sentence) {
 
 }
 
-document.getElementById('sentence_input').addEventListener('input', function (e) {
-    const sentence = e.target.value;
-    compute(sentence);
-});
-
-
 function setSpinnerState(isSpinning) {
     document.getElementById('spinner').style.display = isSpinning ? 'inline-block' : 'none';
 }
 
 async function compute(sentence) {
     setSpinnerState(true);
-    const newSentence = await schtroumpfize(sentence);
+    const newSentence = await translate(sentence);
     gsap
         .fromTo("#sentence_output", {}, {
             text: {
@@ -51,10 +45,19 @@ async function compute(sentence) {
         });
 }
 
-document.getElementById('btn_random').addEventListener('click', function (e) {
-    const random = SENTENCES_EXAMPLES[Math.floor(Math.random() * SENTENCES_EXAMPLES.length)];
-    document.getElementById('sentence_input').value = random;
-    compute(random);
-});
+if (document.getElementById('sentence_input')) {
 
-compute(document.getElementById('sentence_input').value);
+    document.getElementById('btn_random').addEventListener('click', function (e) {
+        const random = SENTENCES_EXAMPLES[Math.floor(Math.random() * SENTENCES_EXAMPLES.length)];
+        document.getElementById('sentence_input').value = random;
+        compute(random);
+    });
+
+    compute(document.getElementById('sentence_input').value);
+
+    document.getElementById('sentence_input').addEventListener('input', function (e) {
+        const sentence = e.target.value;
+        compute(sentence);
+    });
+
+}

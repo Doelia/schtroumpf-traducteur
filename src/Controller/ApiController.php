@@ -21,7 +21,7 @@ class ApiController extends AbstractController
         private SchtroumpfizerApostropheService $schtroumpfizerApostropheService,
     ) {}
 
-    #[Route('/api/schtroumpfize')]
+    #[Route('/api/translate')]
     public function schtroumpfize(Request $request)
     {
         $sentence = $request->query->get('sentence');

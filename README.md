@@ -1,6 +1,6 @@
-# Schtroumpfizer
+# Schtroumpf traducteur
 
-Transforme des phrases dans la langue des schtroumpfs en utilisant des modèles IA en natural language.
+Traduit des phrases dans la langue des schtroumpfs en utilisant des modèles IA en natural language.
 
 
 Exemple en entrée :
@@ -13,7 +13,7 @@ Sortie :
 Sauf erreur, nous n’avons pas schtroumpfé de réponse schtroumpfant le problème schtroumpfé hier matin.
 ```
 
-Disponible librement en ligne via interface graphique ou API sur https://schtroumpfizer.doelia.fr/
+Disponible librement en ligne via interface graphique ou API sur https://schtroumpf-traducteur.doelia.fr/
 
 
 ## Développement
@@ -27,7 +27,7 @@ Dépendances :
 Installation :
 ```
 composer install
-npm instal
+npm install
 ```
 
 Complilation à la volée du js/scss avec vite :

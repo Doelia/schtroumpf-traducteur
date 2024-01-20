@@ -8,15 +8,15 @@ body {
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-.sentence {
-  background-color: rgba(55, 186, 237, 0.1);
-  border-radius: 5px;
-  padding: 1rem;
+textarea.textarea-reset {
   border: 0;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(0, 0, 0);
   font-size: 16px;
-  min-height: 150px;
   line-height: 1.5;
+}
+
+.container {
+  max-width: 1000px !important;
 }
 
 textarea {
